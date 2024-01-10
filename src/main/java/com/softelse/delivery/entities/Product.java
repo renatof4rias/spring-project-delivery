@@ -1,12 +1,17 @@
 package com.softelse.delivery.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +27,11 @@ public class Product implements Serializable {
 	private String description;
 	private String imageUri;
 
+	
+	@ManyToMany
+	@JoinTable(name = "tb_order_product", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
+	private List<Order> orders = new ArrayList<>();
+	
 	public Product() {
 
 	}
@@ -73,10 +83,14 @@ public class Product implements Serializable {
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, imageUri, name, price);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -88,9 +102,7 @@ public class Product implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
-				&& Objects.equals(imageUri, other.imageUri) && Objects.equals(name, other.name)
-				&& Objects.equals(price, other.price);
+		return Objects.equals(id, other.id);
 	}
 
 }
