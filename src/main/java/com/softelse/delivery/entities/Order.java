@@ -16,10 +16,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_order")
-public class Order implements Serializable{
+public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,16 +30,17 @@ public class Order implements Serializable{
 	private Instant moment;
 	private OrderStatus status;
 	private Double total;
-	
+
 	@JsonIgnore
 	@ManyToMany(mappedBy = "orders")
 	private List<Product> products = new ArrayList<>();
-	
+
 	public Order() {
-		
+
 	}
 
-	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status, Double total) {
+	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status,
+			Double total) {
 		this.id = id;
 		this.address = address;
 		this.latitude = latitude;
@@ -126,5 +126,5 @@ public class Order implements Serializable{
 		Order other = (Order) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
 }

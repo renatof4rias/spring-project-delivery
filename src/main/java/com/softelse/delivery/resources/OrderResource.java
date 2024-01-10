@@ -17,12 +17,11 @@ public class OrderResource {
 
 	@Autowired
 	private OrderService orderService;
-	
+
 	@GetMapping
-	public ResponseEntity<List<Order>> findAll(){
+	public ResponseEntity<List<Order>> findAll() {
 		List<Order> result = orderService.findAll();
 		return ResponseEntity.ok().body(result);
 	}
-	
-	
+
 }
