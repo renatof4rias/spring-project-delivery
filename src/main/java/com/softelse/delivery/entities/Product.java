@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_product")
-public class Product implements Serializable{
+public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,9 +21,9 @@ public class Product implements Serializable{
 	private Double price;
 	private String description;
 	private String imageUri;
-	
+
 	public Product() {
-		
+
 	}
 
 	public Product(Long id, String name, Double price, String description, String imageUri) {
@@ -92,5 +92,5 @@ public class Product implements Serializable{
 				&& Objects.equals(imageUri, other.imageUri) && Objects.equals(name, other.name)
 				&& Objects.equals(price, other.price);
 	}
-	
+
 }
