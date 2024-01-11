@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.softelse.delivery.entities.Product;
+import com.softelse.delivery.dtos.ProductDTO;
 import com.softelse.delivery.services.ProductService;
 
 @RestController
@@ -19,8 +19,8 @@ public class ProductResource {
 	private ProductService productService;
 
 	@GetMapping
-	public ResponseEntity<List<Product>> findAll() {
-		List<Product> result = productService.findAll();
+	public ResponseEntity<List<ProductDTO>> findAll() {
+		List<ProductDTO> result = productService.findAll();
 		return ResponseEntity.ok().body(result);
 	}
 }
