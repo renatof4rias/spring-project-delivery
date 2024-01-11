@@ -19,4 +19,8 @@ public class OrderService {
 		return result;
 	}
 
+	public Order insert(Order obj) {
+		return orderRepository.save(obj);
+	}
+
 }
