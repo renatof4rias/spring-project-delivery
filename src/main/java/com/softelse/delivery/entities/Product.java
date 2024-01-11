@@ -79,10 +79,6 @@ public class Product implements Serializable {
 		this.imageUri = imageUri;
 	}
 
-	public List<Order> getOrders() {
-		return orders;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
