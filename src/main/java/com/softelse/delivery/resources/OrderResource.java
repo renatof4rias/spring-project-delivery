@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.softelse.delivery.dtos.OrderDTO;
 import com.softelse.delivery.entities.Order;
 import com.softelse.delivery.services.OrderService;
 
@@ -23,8 +24,8 @@ public class OrderResource {
 	private OrderService orderService;
 
 	@GetMapping
-	public ResponseEntity<List<Order>> findAll() {
-		List<Order> result = orderService.findAll();
+	public ResponseEntity<List<OrderDTO>> findAll() {
+		List<OrderDTO> result = orderService.findAll();
 		return ResponseEntity.ok().body(result);
 	}
 
