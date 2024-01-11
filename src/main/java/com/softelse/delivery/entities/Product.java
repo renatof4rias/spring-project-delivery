@@ -27,10 +27,6 @@ public class Product implements Serializable {
 	private String description;
 	private String imageUri;
 
-	@ManyToMany
-	@JoinTable(name = "tb_order_product", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
-	private List<Order> orders = new ArrayList<>();
-
 	public Product() {
 
 	}
