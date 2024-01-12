@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 
 import com.softelse.delivery.entities.Product;
 
-public class ProductDTO implements Serializable{
+public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -18,7 +18,7 @@ public class ProductDTO implements Serializable{
 	public ProductDTO() {
 
 	}
-	
+
 	public ProductDTO(Product entity) {
 		BeanUtils.copyProperties(entity, this);
 	}
@@ -62,5 +62,5 @@ public class ProductDTO implements Serializable{
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
-	
+
 }

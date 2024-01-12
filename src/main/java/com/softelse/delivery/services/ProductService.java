@@ -18,6 +18,6 @@ public class ProductService {
 
 	public List<ProductDTO> findAll() {
 		List<Product> result = productRepository.findAllByOrderByNameAsc();
-		return result.stream().map(x -> new  ProductDTO(x)).collect(Collectors.toList());
+		return result.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 }

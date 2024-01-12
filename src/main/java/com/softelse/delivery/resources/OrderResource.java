@@ -38,9 +38,9 @@ public class OrderResource {
 	}
 
 	@PutMapping("/{id}/delivered")
-	public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id){
+	public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id) {
 		OrderDTO dto = orderService.setDelivered(id);
 		return ResponseEntity.ok().body(dto);
 	}
-	
+
 }

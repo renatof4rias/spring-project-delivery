@@ -24,16 +24,17 @@ public class OrderService {
 
 	@Autowired
 	private ProductRepository productRepository;
-	
-	
+
 	@Transactional(readOnly = true)
 	public List<OrderDTO> findAll() {
 		List<Order> result = orderRepository.findOrdersWithProducts();
 		return result.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
 	}
+
 	@Transactional
 	public OrderDTO insert(OrderDTO obj) {
-		Order order = new Order(null, obj.getAddress(), obj.getLatitude(), obj.getLongitude(), Instant.now(), OrderStatus.PENDING, obj.getTotal() ); 
+		Order order = new Order(null, obj.getAddress(), obj.getLatitude(), obj.getLongitude(), Instant.now(),
+				OrderStatus.PENDING, obj.getTotal());
 
 		for (ProductDTO p : obj.getProducts()) {
 			@SuppressWarnings("deprecation")
@@ -42,7 +43,7 @@ public class OrderService {
 		}
 		order = orderRepository.save(order);
 		return new OrderDTO(order);
-	}  
+	}
 
 	public OrderDTO setDelivered(Long id) {
 		@SuppressWarnings("deprecation")
@@ -51,6 +52,5 @@ public class OrderService {
 		order = orderRepository.save(order);
 		return new OrderDTO(order);
 	}
-	
+
 }
-	
