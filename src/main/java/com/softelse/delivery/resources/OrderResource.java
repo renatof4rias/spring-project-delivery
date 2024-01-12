@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.softelse.delivery.dtos.OrderDTO;
-import com.softelse.delivery.entities.Order;
 import com.softelse.delivery.services.OrderService;
 
 @RestController
@@ -30,7 +29,7 @@ public class OrderResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<Order> insert(@RequestBody Order obj) {
+	public ResponseEntity<OrderDTO> insert(@RequestBody OrderDTO obj) {
 		obj = orderService.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
