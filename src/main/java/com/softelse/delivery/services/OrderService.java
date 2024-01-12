@@ -17,7 +17,7 @@ public class OrderService {
 	private OrderRepository orderRepository;
 
 	public List<OrderDTO> findAll() {
-		List<Order> result = orderRepository.findAll();
+		List<Order> result = orderRepository.findOrdersWithProducts();
 		return result.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
 	}
 
