@@ -36,6 +36,7 @@ public class OrderService {
 		Order order = new Order(null, obj.getAddress(), obj.getLatitude(), obj.getLongitude(), Instant.now(), OrderStatus.PENDING, obj.getTotal() ); 
 
 		for (ProductDTO p : obj.getProducts()) {
+			@SuppressWarnings("deprecation")
 			Product product = productRepository.getOne(p.getId());
 			order.getProducts().add(product);
 		}
@@ -43,7 +44,13 @@ public class OrderService {
 		return new OrderDTO(order);
 	}  
 
-//	public void update
+	public OrderDTO setDelivered(Long id) {
+		@SuppressWarnings("deprecation")
+		Order order = orderRepository.getOne(id);
+		order.setStatus(OrderStatus.DELIVERED);
+		order = orderRepository.save(order);
+		return new OrderDTO(order);
+	}
 	
 }
 	
