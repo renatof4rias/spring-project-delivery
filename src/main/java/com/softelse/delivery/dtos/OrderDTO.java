@@ -25,7 +25,6 @@ public class OrderDTO implements Serializable {
 	private List<ProductDTO> products = new ArrayList<>();
 
 	public OrderDTO() {
-
 	}
 
 	public OrderDTO(Order entity) {
