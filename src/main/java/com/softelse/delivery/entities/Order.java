@@ -126,6 +126,8 @@ public class Order implements Serializable {
 			return false;
 		Order other = (Order) obj;
 		return Objects.equals(id, other.id);
+	
+	
 	}
 
 }
