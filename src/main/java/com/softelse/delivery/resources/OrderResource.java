@@ -36,7 +36,6 @@ public class OrderResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-	
 
 	@PutMapping("/{id}/delivered")
 	public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id) {
