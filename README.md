@@ -60,7 +60,6 @@ Exemplo :
         "address": " Local de Entrega, Numero da Casa",
         "latitude": -23.56168,
         "longitude": -46.656139,
-        "total": null,
         "products": [
             {
                 "id": 2
