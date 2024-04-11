@@ -74,6 +74,6 @@ Exemplo :
 # Autor
 Renato Gonçalves Farias
 
-https://www.linkedin.com/in/renatof4rias/
+www.linkedin.com/in/renato-goncalves-farias/
 
 renatof4rias@gmail.com
