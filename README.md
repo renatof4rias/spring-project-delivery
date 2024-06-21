@@ -8,7 +8,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
-Delivery é uma aplicação backend de uma API REST.
+Projeto Pessoal de uma aplicação backend de uma API REST.
 
 A aplicação consiste em um sistemas que gerência cadastros de produtos, ordens de pedidos e o gerênciamento de entregas em domicílio.  
 </p>
